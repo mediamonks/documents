@@ -123,6 +123,8 @@ postMessage API. The callback is used as a unique identifier to match
 In case IE8/9 that cannot POST cross-domain or cross-protocol requests, and using the postMessage solution is not an option, a NOT
 RECOMMENDED option is to do a GET request with all the data, and adding the ```_method```  query parameter to specify the real Request Method.
 
+In normal situations the [X-HTTP-Method-Override](#133-xhttpmethodoverride) request header MUST be used.
+
 ### 1.2.4 pagination
 There are 2 types of paginations that SHOULD be supported, Offset and Cursor based pagination. A paginated API call MUST implement one  of the two types, but MUST NOT implement both, as they each have their own features and limitations.
 
@@ -231,7 +233,7 @@ X-Force-Status-Code-200: 1
 ```
 
 Clients that cannot read the response body when the Status Code is not 2xx MAY set the X-Force-Status-Code-200 request header.
-When the ```X-Force-Status-Code-200``` is set the response Status Code is always 200, and the real Status Code is placed on the response body.
+When the ```X-Force-Status-Code-200``` is set the response Status Code is always 200, and the real Status Code is placed on the [response body](#224-status-code).
 
 ### 1.3.3 X‐HTTP‐Method‐Override
 
@@ -255,7 +257,7 @@ Accept: application/json
 
 To specify the output format of the response the ```Accept``` request header MUST be set.
 
-When viewing the response in the browser where it's not possible to set the ```Accept``` request header, the _format query parameter MAY be 
+When viewing the response in the browser where it's not possible to set the ```Accept``` request header, the [_format query parameter](#121-_format) MAY be 
 used to specify the output format.
 
 # 1.4 HTTP Method
@@ -314,7 +316,7 @@ For reference see official [W3 HTTP Method Definitions](http://www.w3.org
 # 1.5 Body
 Empty for get/delete, filled for post/put/patch. 
 Default for application/x-www-form-urlencoded, multipart/form-data 
-Follow spec for application/json (http://www.w3.org/TR/html-json-forms/)
+Follow spec for application/json [HTML JSON forms](http://www.w3.org/TR/html-json-forms/)
 
 **JSON data**
 ```json
