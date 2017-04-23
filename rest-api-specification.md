@@ -10,8 +10,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "S
 ```
 1.0		2015-03-20  Initial version
 1.1		2015-04-07  Added _wrapper query parameter for postMessage and other wrappers
-                    Added info about Accept Language header for the locale query parameter 
-                    Rename since/until to before/after
+                        Added info about Accept Language header for the locale query parameter 
+                        Rename since/until to before/after
 1.2		2017-04-23	Markdown version
 ```
 
@@ -319,14 +319,14 @@ Follow spec for application/json (http://www.w3.org/TR/html-json-forms/)
 **JSON data**
 ```json
 {
-    "pet": [
+    "pet":[
         {
-            "species": "Dahut",
-            "name": "Hypatia"
+            "species": "Dahut",
+            "name": "Hypatia"
         },
         {
-            "species": "Felis Stultus",
-            "name": "Billie"
+            "species": "Felis Stultus",
+            "name": "Billie"
         }
     ]
 }
@@ -376,7 +376,7 @@ response.
 
 ```json
 {
-    "data": {
+    "data": {
         "firstName": "John",
         "lastName": "Doe",
         "name": "Narie"
@@ -420,9 +420,9 @@ exists), but SHOULD NOT be used to show translated messages. For tran
         "message": "Not all fields are filled correctly.",
         "fields": [
             {
-                "field": "email", // field name
-                "code": "error.form.validation.email_exists", // string code
-                "message": "This email address is already in use." // human readable message
+                "field": "email",
+                "code": "error.form.validation.email_exists",
+                "message": "This email address is already in use."
             },
             {
                 "field": "zipcode",
@@ -439,25 +439,30 @@ exists), but SHOULD NOT be used to show translated messages. For tran
 }
 ```
 
+Keys/Explanation
+**field** field name
+**code** string code
+**message** human readable message
+
 ### 2.2.4 Status Code
 When the ```X-Force-Status-Code-200``` is set, the actual status code MUST be placed in the body, where the status code in the header 
 MUST be 200.
 
 ```json
 {
-    "statusCode": 200,
+    "statusCode": 200,
     "data": {
-        "firstName": "John",
-        "lastName" : "Doe",
-        "name" : "Narie"
+        "firstName": "John",
+        "lastName": "Doe",
+        "name": "Narie"
     }
 }
 ```
 
 ```json
 {
-    "statusCode": 401,
-    "error": {
+    "statusCode": 401,
+    "error": {
         "code": "error.auth",
         "message" : "Some of the aliases you requested do not exist: foobar"
     }
@@ -477,10 +482,10 @@ The response MAY contain:
 
 ```json
 {
-    "pagination": {
-        "total": 56, // optionally included when clients wants this information
-        "offset": 30, // offset from request
-        "limit": 10 // limit from request
+    "pagination": {
+        "total": 56, // optionally included when clients wants this information
+        "offset": 30, // offset from request
+        "limit": 10 // limit from request
     }
 }
 ```
@@ -500,13 +505,20 @@ The response MAY contain:
 {
     "pagination":
         {
-            "total": 56, // optionally included when clients wants this information
-            "before": "2014-11-09T21:28:46+0200", // 'cursor' for the first item in the result
-            "after": "2014-11-09T20:45:12+0200", // 'cursor for the last item in the result
-            "limit": 10 // limit from request
+            "total": 56,
+            "before": "2014-11-09T21:28:46+0200",
+            "after": "2014-11-09T20:45:12+0200",
+            "limit": 10
         }
 }
 ```
+
+Keys/Explanation
+**total** optionally included when clients wants this information
+**before** 'cursor' for the first item in the result
+**after** 'cursor' for the last item in the result
+**limit** limit from request
+
 
 # 3 General
 
