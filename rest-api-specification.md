@@ -440,9 +440,9 @@ exists), but SHOULD NOT be used to show translated messages. For tran
 ```
 
 Keys/Explanation
-**field** field name
-**code** string code
-**message** human readable message
+- **field**: field name
+- **code**: string code
+- **message**: human readable message
 
 ### 2.2.4 Status Code
 When the ```X-Force-Status-Code-200``` is set, the actual status code MUST be placed in the body, where the status code in the header 
@@ -463,8 +463,8 @@ MUST be 200.
 {
     "statusCode": 401,
     "error": {
-        "code": "error.auth",
-        "message" : "Some of the aliases you requested do not exist: foobar"
+        "code": "error.auth",
+        "message": "Some of the aliases you requested do not exist: foobar"
     }
 }
 ```
@@ -483,12 +483,17 @@ The response MAY contain:
 ```json
 {
     "pagination": {
-        "total": 56, // optionally included when clients wants this information
-        "offset": 30, // offset from request
-        "limit": 10 // limit from request
+        "total": 56,
+        "offset": 30,
+        "limit": 10
     }
 }
 ```
+
+Keys/Explanation
+- **total**: optionally included when clients wants this information
+- **offset**: offset from request
+- **limit**: limit from request
 
 **Time/Cursor based pagination**
 
@@ -514,10 +519,10 @@ The response MAY contain:
 ```
 
 Keys/Explanation
-**total** optionally included when clients wants this information
-**before** 'cursor' for the first item in the result
-**after** 'cursor' for the last item in the result
-**limit** limit from request
+- **total**: optionally included when clients wants this information
+- **before**: 'cursor' for the first item in the result
+- **after**: 'cursor' for the last item in the result
+- **limit**: limit from request
 
 
 # 3 General
